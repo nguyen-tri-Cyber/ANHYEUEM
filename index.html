@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Món quà ngọt ngào và lãng mạn nhất dành tặng em nhân ngày Phụ nữ Việt Nam 20/10.">
+  <title>Gửi Người Anh Yêu Nhất ❤️ 20/10 Ngọt Ngào</title>
+
+  <!-- Google Fonts: Playfair Display, Dancing Script, Be Vietnam Pro, Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== MÀN HÌNH KHÓA VÂN TAY & CÂU HỎI BẢO MẬT ==================== -->
+  <div class="fingerprint-lock-screen" id="fingerprintLockScreen">
+    <div class="fingerprint-backdrop"></div>
+    <div class="fingerprint-content">
+      
+      <!-- BƯỚC 1: QUÉT VÂN TAY -->
+      <div class="lock-scan-step" id="lockScanStep">
+        <div class="lock-header">
+          <span class="lock-badge">✨ 20 Tháng 10 • Món Quà Bí Mật ✨</span>
+          <h2 class="lock-title">Xác Nhận Danh Tính Công Chúa</h2>
+          <p class="lock-subtitle">Đặt và giữ ngón tay vào đây để mở khóa món quà dành riêng cho em 💖</p>
+        </div>
+
+        <div class="fingerprint-scanner-box">
+          <!-- Vòng tròn tiến trình quét vân tay -->
+          <svg class="progress-ring" viewBox="0 0 130 130" aria-hidden="true">
+            <circle class="progress-ring-bg" cx="65" cy="65" r="58" />
+            <circle class="progress-ring-fill" id="scannerProgressCircle" cx="65" cy="65" r="58" />
+          </svg>
+
+          <!-- Nút cảm ứng vân tay -->
+          <div class="fingerprint-pad" id="fingerprintPad" role="button" tabindex="0" aria-label="Chạm và giữ ngón tay để quét vân tay">
+            <div class="scan-glow-ring"></div>
+            <svg class="fingerprint-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" />
+              <path d="M14 13.12c0 2.38 0 6.38-1 8.88" />
+              <path d="M2 12a10 10 0 0 1 18-6" />
+              <path d="M2 16a10 10 0 0 0 6.4 7.6" />
+              <path d="M12 2a10 10 0 0 1 9.94 11.23" />
+              <path d="M12 6a6 6 0 0 1 5.91 7.2" />
+              <path d="M6 12a6 6 0 0 1 10.9-3.2" />
+              <path d="M6 16c0 1.5.5 3.5 1.5 5" />
+              <path d="M17.5 18a8.9 8.9 0 0 0 1-5" />
+            </svg>
+            <!-- Tia quét laser đỏ hồng chuyển động -->
+            <div class="scan-laser-beam" id="scanLaserBeam"></div>
+          </div>
+        </div>
+
+        <div class="lock-status-box">
+          <p class="lock-status-text" id="lockStatusText">Chạm & Giữ ngón tay để quét...</p>
+          <span class="lock-hint">📱 Trên điện thoại: Giữ ngón tay • 💻 Máy tính: Nhấn giữ chuột</span>
+        </div>
+      </div>
+
+      <!-- BƯỚC 2: CÂU HỎI BẢO MẬT (NGÀY SINH CỦA ANH) -->
+      <div class="lock-quiz-box" id="lockQuizBox" style="display: none;">
+        <span class="quiz-badge">🔐 Xác Thực Bảo Mật 2 Lớp</span>
+        <h3 class="quiz-title">Ngày Sinh Của Anh Là Ngày Nào?</h3>
+        <p class="quiz-subtitle">Chỉ có công chúa thật sự mới biết câu trả lời này thôi nhé! 💖</p>
+        
+        <div class="quiz-options-grid" id="quizOptionsGrid">
+          <button class="quiz-option-btn" data-correct="false" type="button">
+            <span class="option-letter">A</span>
+            <span class="option-text">11 Tháng 8</span>
+          </button>
+          <button class="quiz-option-btn" data-correct="true" type="button">
+            <span class="option-letter">B</span>
+            <span class="option-text">16 Tháng 7</span>
+          </button>
+          <button class="quiz-option-btn" data-correct="false" type="button">
+            <span class="option-letter">C</span>
+            <span class="option-text">20 Tháng 10</span>
+          </button>
+          <button class="quiz-option-btn" data-correct="false" type="button">
+            <span class="option-letter">D</span>
+            <span class="option-text">16 Tháng 8</span>
+          </button>
+        </div>
+
+        <div class="quiz-feedback" id="quizFeedback"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Thanh điều hướng các cảnh (Scene Navigation Bar) -->
+  <nav class="scene-nav-bar" id="sceneNavBar" aria-label="Điều hướng các cảnh">
+    <div class="scene-nav-inner">
+      <button class="scene-dot active" data-index="0" title="1. Lời Ngỏ">
+        <span class="dot-num">1</span>
+        <span class="dot-label">Lời Ngỏ</span>
+      </button>
+      <button class="scene-dot" data-index="1" title="2. Kỷ Niệm">
+        <span class="dot-num">2</span>
+        <span class="dot-label">Kỷ Niệm</span>
+      </button>
+      <button class="scene-dot" data-index="2" title="3. Giữ Gìn Tình Yêu">
+        <span class="dot-num">3</span>
+        <span class="dot-label">Giữ Tình Yêu</span>
+      </button>
+      <button class="scene-dot" data-index="3" title="4. Thư Tình">
+        <span class="dot-num">4</span>
+        <span class="dot-label">Thư Tình</span>
+      </button>
+      <button class="scene-dot" data-index="4" title="5. Lời Nhắn">
+        <span class="dot-num">5</span>
+        <span class="dot-label">Lời Nhắn</span>
+      </button>
+      <button class="scene-dot" data-index="5" title="6. Lời Chúc">
+        <span class="dot-num">6</span>
+        <span class="dot-label">Lời Chúc</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mũi tên chuyển cảnh hai bên màn hình -->
+  <button class="scene-arrow-btn prev" id="prevSceneBtn" aria-label="Cảnh trước" title="Quay lại cảnh trước">❮</button>
+  <button class="scene-arrow-btn next" id="nextSceneBtn" aria-label="Cảnh tiếp theo" title="Sang cảnh tiếp theo">❯</button>
+
+  <!-- Nút điều khiển chuyển động tự động (Cinematic Motion Controller) -->
+  <aside class="motion-controller" id="motionController" aria-label="Bộ điều khiển tự động chuyển cảnh">
+    <button id="toggleMotionBtn" class="motion-btn" title="Tạm dừng hoặc tiếp tục tự động chuyển cảnh">
+      <span class="motion-icon" id="motionIcon">⏸️</span>
+      <span class="motion-label" id="motionLabel">Tạm dừng tự động</span>
+    </button>
+  </aside>
+
+  <!-- Nền cánh hoa & hiệu ứng trái tim bay nhẹ nhàng -->
+  <div id="heartsContainer" aria-hidden="true"></div>
+
+  <!-- Nút điều khiển âm nhạc lãng mạn -->
+  <aside class="music-controller" aria-label="Bộ điều khiển nhạc">
+    <button id="musicToggleBtn" class="music-btn" aria-label="Bật hoặc tắt nhạc nền" title="Bật / Tắt nhạc">
+      <span class="music-icon" id="musicIcon">🎵</span>
+      <span class="music-label" id="musicLabel">Bật Nhạc</span>
+      <span class="music-waves" id="musicWaves" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+    <!-- Thẻ audio phát bài hát "Cứ An Lòng Em" do bạn tự làm -->
+    <audio id="bgMusic" preload="auto" loop autoplay>
+      <source src="music/C%E1%BB%A9%20An%20L%C3%B2ng%20Em.mp3" type="audio/mpeg">
+      <source src="music/Cứ An Lòng Em.mp3" type="audio/mpeg">
+    </audio>
+  </aside>
+
+  <!-- ==================== KHÔNG GIAN CÁC CẢNH TRÌNH CHIẾU (SCENE VIEWPORT) ==================== -->
+  <main class="scene-viewport" id="sceneViewport">
+
+    <!-- ========== CẢNH 1: LỜI MỞ ĐẦU & ĐẾM NGÀY BÊN NHAU ========== -->
+    <section class="scene active" id="sceneHero" data-scene="0">
+      <div class="scene-inner container hero-container">
+        <div class="hero-badge">
+          <span class="badge-icon">🌸</span>
+          <span class="badge-text">Ngày Phụ Nữ Việt Nam • 20 Tháng 10</span>
+          <span class="badge-icon">🌸</span>
+        </div>
+
+        <h1 class="hero-title">
+          Gửi Người Con Gái <br>
+          <span class="highlight-romantic">Anh Yêu Nhất</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Chào em, công chúa nhỏ của anh! Hôm nay là ngày đặc biệt của riêng em.
+          Anh làm trang web nhỏ này để gửi gắm tất cả tình cảm, sự trân trọng và những kỷ niệm ngọt ngào nhất mà chúng mình đã cùng nhau đi qua.
+        </p>
+
+        <!-- Đồng hồ đếm ngày bên nhau (từ 11/08/2025) -->
+        <div class="love-counter-card" id="loveCounterCard">
+          <div class="counter-header">
+            <span class="heart-pulse">❤️</span>
+            <span class="counter-title">Chúng mình đã bên nhau</span>
+            <span class="heart-pulse">❤️</span>
+          </div>
+          <div class="counter-grid">
+            <div class="counter-item">
+              <span class="counter-number" id="countDays">0</span>
+              <span class="counter-unit">Ngày</span>
+            </div>
+            <div class="counter-colon">:</div>
+            <div class="counter-item">
+              <span class="counter-number" id="countHours">00</span>
+              <span class="counter-unit">Giờ</span>
+            </div>
+            <div class="counter-colon">:</div>
+            <div class="counter-item">
+              <span class="counter-number" id="countMinutes">00</span>
+              <span class="counter-unit">Phút</span>
+            </div>
+            <div class="counter-colon">:</div>
+            <div class="counter-item">
+              <span class="counter-number" id="countSeconds">00</span>
+              <span class="counter-unit">Giây</span>
+            </div>
+          </div>
+          <p class="counter-footnote">...và sẽ là mãi mãi về sau ✨</p>
+        </div>
+
+        <!-- Nút chuyển cảnh tiếp theo -->
+        <div class="scene-next-row">
+          <button class="btn-primary btn-scene-next" data-next="1">
+            <span>Khám Phá Kỷ Niệm Của Chúng Mình</span>
+            <span class="btn-arrow">❯</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CẢNH 2: HÀNH TRÌNH TÌNH YÊU (TIMELINE) ========== -->
+    <section class="scene" id="sceneTimeline" data-scene="1">
+      <div class="scene-inner container">
+        <div class="section-heading">
+          <span class="section-tag">Hành Trình Tình Yêu</span>
+          <h2 class="section-title">Những Cột Mốc Đáng Nhớ</h2>
+          <div class="decorative-line">
+            <span></span><span class="dec-heart">❦</span><span></span>
+          </div>
+          <p class="section-desc">Từng ngày trôi qua bên em đều là một trang ký ức vô giá mà anh luôn trân quý.</p>
+        </div>
+
+        <div class="timeline-track">
+          <!-- Cột mốc 1 -->
+          <article class="timeline-item left">
+            <div class="timeline-dot">✨</div>
+            <div class="timeline-card">
+              <span class="timeline-date">Lần đầu gặp gỡ</span>
+              <h3 class="timeline-card-title">Ngày Ánh Mắt Chạm Nhau</h3>
+              <p class="timeline-card-text">
+                Khoảnh khắc đầu tiên nhìn thấy em cười, thế giới xung quanh anh dường như chậm lại. Trái tim anh lúc ấy đã thầm mách bảo rằng: đây chính là định mệnh.
+              </p>
+              <span class="timeline-tag">#KhoanhKhacDauTien</span>
+            </div>
+          </article>
+
+          <!-- Cột mốc 2 -->
+          <article class="timeline-item right">
+            <div class="timeline-dot">☕</div>
+            <div class="timeline-card">
+              <span class="timeline-date">Buổi hẹn hò đầu tiên</span>
+              <h3 class="timeline-card-title">MỘt TÔ MÌ CAY NÓNG BỎNG VÀ MỘT BỘ PHIM CHỨA TÌNH YÊU RẤT LỚN</h3>
+              <p class="timeline-card-text">
+                Những cái nhìn ngại ngùng và những mẩu chuyện tưởng như không bao giờ dứt. Đó là ngày anh nhận ra em đáng yêu đến nhường nào.
+              </p>
+              <span class="timeline-tag">#BuoiHenDau</span>
+            </div>
+          </article>
+
+          <!-- Cột mốc 3 -->
+          <article class="timeline-item left">
+            <div class="timeline-dot">🌹</div>
+            <div class="timeline-card">
+              <span class="timeline-date">11/08/2025 • Ngày chính thức bên nhau</span>
+              <h3 class="timeline-card-title">Khoảnh Khắc Em Nói Đồng Ý</h3>
+              <p class="timeline-card-text">
+                Cái gật đầu dịu dàng của em là món quà tuyệt vời nhất cuộc đời trao tặng anh. Kể từ giây phút đó, anh biết mình có một người để yêu thương và bảo vệ suốt đời.
+              </p>
+              <span class="timeline-tag">#ChinhThucYeu</span>
+            </div>
+          </article>
+
+          <!-- Cột mốc 4 -->
+          <article class="timeline-item right">
+            <div class="timeline-dot">🎁</div>
+            <div class="timeline-card highlight-card">
+              <span class="timeline-date">20 Tháng 10 Hôm Nay</span>
+              <h3 class="timeline-card-title">Món Quà Dành Tặng Em</h3>
+              <p class="timeline-card-text">
+                Thêm một ngày lễ 20/10 anh được đồng hành cùng em. Dù thời gian có trôi, tình cảm anh dành cho em vẫn vẹn nguyên, đậm sâu và ấm áp như những ngày đầu.
+              </p>
+              <span class="timeline-tag">#20Thang10YeuThuong</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="scene-next-row">
+          <button class="btn-primary btn-scene-next" data-next="2">
+            <span>34 Cách Giữ Gìn Tình Yêu 💖</span>
+            <span class="btn-arrow">❯</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CẢNH 3: THƯỚC PHIM 34 ẢNH KỶ NIỆM (POLAROID CINEMA) ========== -->
+    <section class="scene" id="sceneGallery" data-scene="2">
+      <div class="scene-inner container">
+        <div class="section-heading">
+          <span class="section-tag">Giữ Gìn Hạnh Phúc</span>
+          <h2 class="section-title">34 Lời Nhắc Giữ Gìn Tình Yêu Cho Cả Hai</h2>
+          <div class="decorative-line">
+            <span></span><span class="dec-heart">💖</span><span></span>
+          </div>
+          <p class="section-desc">Mỗi bức ảnh là một bài học giản dị nhưng sâu sắc để tình yêu chúng mình mãi bền lâu ✨</p>
+        </div>
+
+        <!-- Khung ảnh Polaroid Trung Tâm (Featured Cinema Showcase) -->
+        <div class="polaroid-cinema-wrapper">
+          <div class="polaroid-card featured-polaroid" id="featuredPolaroid" role="button" tabindex="0" title="Bấm để xem ảnh phóng to">
+            <div class="pin-tape"></div>
+            <div class="polaroid-img-wrapper">
+              <img id="featuredPhotoImg" src="" alt="Ảnh kỷ niệm">
+            </div>
+            <div class="polaroid-caption">
+              <h3 class="featured-photo-title" id="featuredPhotoTitle">Khoảnh Khắc Kỷ Niệm #1</h3>
+              <p class="featured-photo-desc" id="featuredPhotoDesc">Mỗi nụ cười của em đều làm bừng sáng cả thế giới xung quanh anh.</p>
+            </div>
+          </div>
+
+          <!-- Bộ điều khiển ảnh: Trước / Bộ đếm / Sau -->
+          <div class="photo-controls-row">
+            <button id="prevPhotoBtn" class="photo-nav-btn" aria-label="Ảnh trước">❮ Ảnh trước</button>
+            <div class="photo-counter-pill" id="photoCounterPill">1 / 34</div>
+            <button id="nextPhotoBtn" class="photo-nav-btn" aria-label="Ảnh sau">Ảnh sau ❯</button>
+          </div>
+
+          <!-- Dải ảnh thu nhỏ (Mini Thumbnail Strip) để bấm chọn nhanh ảnh -->
+          <div class="thumbnail-strip-container">
+            <div class="thumbnail-strip" id="thumbnailStrip">
+              <!-- Sẽ được sinh tự động bởi script.js -->
+            </div>
+          </div>
+
+          <!-- Các nút hành động phụ -->
+          <div class="gallery-action-buttons">
+            <button id="openAllGridBtn" class="btn-secondary-glass" type="button">
+              <span>🖼️ Xem toàn bộ 34 ảnh dạng lưới</span>
+            </button>
+            <button class="btn-primary btn-scene-next" data-next="3">
+              <span>Đọc Thư Tình 💌 ❯</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CẢNH 4: LÁ THƯ TÌNH 20/10 (LOVE LETTER) ========== -->
+    <section class="scene" id="sceneLetter" data-scene="3">
+      <div class="scene-inner container">
+        <div class="section-heading">
+          <span class="section-tag">Thư Tình 20/10</span>
+          <h2 class="section-title">Lá Thư Anh Viết Cho Em</h2>
+          <div class="decorative-line">
+            <span></span><span class="dec-heart">💌</span><span></span>
+          </div>
+          <p class="section-desc">Chạm vào phong thư để mở ra những lời thật lòng từ sâu thẳm trái tim anh</p>
+        </div>
+
+        <!-- Phong thư tương tác 3D -->
+        <div class="envelope-wrapper">
+          <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Nhấn để mở phong thư">
+            <div class="envelope-back"></div>
+            <div class="envelope-flap" id="envelopeFlap"></div>
+            <div class="wax-seal" id="waxSeal">
+              <span class="seal-icon">❤️</span>
+            </div>
+            <div class="envelope-front"></div>
+            <div class="envelope-prompt" id="envelopePrompt">
+              <span id="envelopePromptText">Chạm để mở ngay (tự mở sau <strong id="envelopeTimerCount">3</strong>s...) 💌</span>
+            </div>
+          </div>
+
+          <!-- Nội dung lá thư trượt ra -->
+          <div class="letter-sheet" id="letterSheet">
+            <div class="letter-paper">
+              <div class="letter-header">
+                <span class="letter-salutation">Em yêu dấu,</span>
+                <span class="letter-date">Ngày 20 tháng 10</span>
+              </div>
+              <div class="letter-body">
+                <p>
+                  Hôm nay là ngày Phụ Nữ Việt Nam 20/10 — một ngày thật đặc biệt để tôn vinh những người phụ nữ tuyệt vời, và đối với anh, em chính là người con gái dịu dàng, đáng yêu và quan trọng nhất trên thế giới này.
+                </p>
+                <p>
+                  Cảm ơn em đã đến bên anh, mang theo nụ cười rạng rỡ, sự thấu hiểu và biết bao khoảnh khắc bình yên. Có những ngày làm việc mệt nhoài, chỉ cần nhìn thấy nụ cười hay nghe giọng nói của em, mọi âu lo trong anh đều như tan biến.
+                </p>
+                <p>
+                  Anh không phải là người quá khéo ăn nói, nhưng anh luôn muốn dùng hành động để chứng minh tình cảm của mình: sẽ luôn lắng nghe em, nắm chặt tay em lúc vui cũng như lúc buồn, và nỗ lực để trở thành chỗ dựa vững chắc cho em.
+                </p>
+                <p>
+                  Chúc em yêu ngày 20/10 ngập tràn niềm vui, luôn xinh đẹp, tự tin, yêu đời và mãi là công chúa hạnh phúc nhất bên anh nhé!
+                </p>
+              </div>
+              <div class="letter-signature">
+                <p class="sign-from">Người luôn yêu và che chở cho em,</p>
+                <p class="sign-name">Anh Của Em ❤️</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-next-row">
+          <button class="btn-primary btn-scene-next" data-next="4">
+            <span>Khám Phá Hộp Bí Mật 🎁 ❯</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CẢNH 5: 3 CHIẾC HỘP LỜI NHẮN BÍ MẬT ========== -->
+    <section class="scene" id="sceneSecrets" data-scene="4">
+      <div class="scene-inner container">
+        <div class="section-heading">
+          <span class="section-tag">Bất Ngờ Dành Cho Em</span>
+          <h2 class="section-title">3 Lời Nhắn Bí Mật</h2>
+          <div class="decorative-line">
+            <span></span><span class="dec-heart">🎁</span><span></span>
+          </div>
+          <p class="section-desc">Chạm vào từng hộp để mở điều ngọt ngào anh giấu kín</p>
+        </div>
+
+        <!-- 3 Lời Nhắn Bí Mật Tương Tác -->
+        <div class="secret-messages-grid">
+          <!-- Thẻ bí mật 1 -->
+          <div class="secret-card" tabindex="0" role="button" aria-label="Mở lời nhắn: Điều anh thích nhất ở em">
+            <div class="card-inner">
+              <div class="card-front">
+                <span class="card-front-icon">✨</span>
+                <h4>Điều Anh Thích Nhất Ở Em</h4>
+                <span class="tap-hint">Chạm để lật mở</span>
+              </div>
+              <div class="card-back">
+                <span class="card-back-icon">🌟</span>
+                <p>Ánh mắt lấp lánh và nụ cười rạng rỡ của em. Mỗi khi em cười, dường như cả thế giới đều bừng sáng!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thẻ bí mật 2 -->
+          <div class="secret-card" tabindex="0" role="button" aria-label="Mở lời nhắn: Lời hứa của anh">
+            <div class="card-inner">
+              <div class="card-front">
+                <span class="card-front-icon">🤝</span>
+                <h4>Lời Hứa Của Anh</h4>
+                <span class="tap-hint">Chạm để lật mở</span>
+              </div>
+              <div class="card-back">
+                <span class="card-back-icon">💖</span>
+                <p>Luôn kiên nhẫn, luôn lắng nghe, chở che và đồng hành cùng em qua mọi giông bão cuộc đời.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thẻ bí mật 3 -->
+          <div class="secret-card" tabindex="0" role="button" aria-label="Mở lời nhắn: Điều ước cho em hôm nay">
+            <div class="card-inner">
+              <div class="card-front">
+                <span class="card-front-icon">🌸</span>
+                <h4>Điều Ước Cho Em Hôm Nay</h4>
+                <span class="tap-hint">Chạm để lật mở</span>
+              </div>
+              <div class="card-back">
+                <span class="card-back-icon">🌷</span>
+                <p>Mong công chúa của anh mỗi ngày thức dậy đều tràn ngập niềm vui, may mắn và luôn an yên bên anh!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-next-row">
+          <button class="btn-primary btn-scene-next" data-next="5">
+            <span>Xem Lời Chúc Cuối 💖 ❯</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CẢNH 6: LỜI CHÚC TRỌN ĐỜI & PHÁO HOA TRÁI TIM ========== -->
+    <section class="scene" id="sceneWishes" data-scene="5">
+      <div class="scene-inner container">
+        <div class="wishes-card">
+          <div class="wishes-heart-badge">💖</div>
+          <h2 class="wishes-title">Happy Vietnamese Women's Day!</h2>
+          <p class="wishes-quote">
+            "Trong hàng triệu người trên thế giới, thật may mắn vì anh đã tìm thấy em. Chúc người con gái anh yêu một ngày 20/10 trọn vẹn yêu thương!"
+          </p>
+
+          <!-- Nút tương tác thả tim -->
+          <div class="heart-action-area">
+            <button id="heartBurstBtn" class="heart-burst-btn" aria-label="Gửi ngàn trái tim yêu thương">
+              <span class="btn-heart-icon">💖</span>
+              <span class="btn-text">Gửi Ngàn Trái Tim Cho Em</span>
+              <span class="btn-sparkle">✨</span>
+            </button>
+            <div class="heart-count-display">
+              Đã gửi tặng: <span id="heartCountNumber">0</span> trái tim yêu thương ❤️
+            </div>
+          </div>
+
+          <div class="wishes-closing">
+            <p class="closing-sign">Forever with you,</p>
+            <p class="couple-names">Anh ❤️ Em</p>
+          </div>
+
+          <div class="replay-action-row">
+            <button id="restartShowBtn" class="btn-replay-show">
+              <span>🔁 Xem Lại Từ Đầu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODAL XEM TOÀN BỘ 34 ẢNH DẠNG LƯỚI ==================== -->
+  <div class="grid-modal" id="gridModal" aria-hidden="true" role="dialog" aria-label="Xem toàn bộ 34 ảnh">
+    <div class="grid-modal-backdrop" id="gridModalBackdrop"></div>
+    <div class="grid-modal-content">
+      <div class="grid-modal-header">
+        <h3 class="grid-modal-title">💖 Toàn Bộ 34 Lời Nhắc Giữ Gìn Tình Yêu Đôi Ta</h3>
+        <button class="grid-modal-close" id="gridModalClose" aria-label="Đóng cửa sổ">&times;</button>
+      </div>
+      <div class="grid-modal-body">
+        <div class="polaroid-grid" id="polaroidGrid">
+          <!-- Render 34 ảnh Polaroid dạng lưới -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL XEM PHÓNG TO 1 ẢNH (LIGHTBOX) ==================== -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Chi tiết hình ảnh kỷ niệm">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Đóng cửa sổ ảnh">&times;</button>
+      <button class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Xem ảnh trước">❮</button>
+      <button class="lightbox-nav-btn next" id="lightboxNextBtn" aria-label="Xem ảnh tiếp theo">❯</button>
+
+      <div class="lightbox-body">
+        <div class="lightbox-img-box">
+          <img id="lightboxImg" src="" alt="Ảnh kỷ niệm phóng to">
+        </div>
+        <div class="lightbox-info">
+          <h3 id="lightboxTitle" class="lightbox-title"></h3>
+          <p id="lightboxDesc" class="lightbox-desc"></p>
+          <span class="lightbox-note">❤️ Luôn yêu và thương em mỗi ngày ❤️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
